@@ -53,10 +53,18 @@ portfolio/
 ├── index.html          # Main HTML file
 ├── styles.css          # All styling and animations
 ├── script.js           # Interactive JavaScript functionality
+├── profile.jpg         # Your profile picture (add this file)
 └── README.md           # This file
 ```
 
 ## 🎨 Customization
+
+### Add Your Profile Picture
+
+1. Add your profile picture to the project root directory
+2. Name it `profile.jpg` (or update the filename in `index.html` line 72)
+3. Recommended size: 300x300px or larger (square aspect ratio works best)
+4. The image will automatically display with a beautiful animated border and glow effect
 
 ### Update Personal Information
 

@@ -5,6 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praanav Bhowmik | Software Engineer & AI Innovator</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Critical animation styles - ensure they load */
+        .neuron {
+            width: 32px !important;
+            height: 32px !important;
+            background: #6366f1 !important;
+            border-radius: 50% !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            border: 2px solid #818cf8 !important;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.8) !important;
+            margin: 4px !important;
+        }
+        .doc-chunk {
+            width: 60px !important;
+            height: 12px !important;
+            background: #8b5cf6 !important;
+            border-radius: 4px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 2px 0 !important;
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.7) !important;
+        }
+        .vector-node {
+            width: 40px !important;
+            height: 40px !important;
+            border: 3px solid #8b5cf6 !important;
+            border-radius: 6px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(139, 92, 246, 0.1) !important;
+            margin: 4px 0 !important;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.6) !important;
+        }
+        .neural-network {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .rag-process {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        @keyframes neuronPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.8; }
+        }
+        @keyframes docFlow {
+            0%, 100% { opacity: 0.6; transform: translateX(0) scale(1); }
+            50% { opacity: 1; transform: translateX(15px) scale(1.1); }
+        }
+        @keyframes vectorPulse {
+            0%, 100% { border-color: #8b5cf6; transform: scale(1); }
+            50% { border-color: #ec4899; transform: scale(1.15); }
+        }
+        .neuron {
+            animation: neuronPulse 2s ease-in-out infinite !important;
+        }
+        .doc-chunk {
+            animation: docFlow 2s ease-in-out infinite !important;
+        }
+        .vector-node {
+            animation: vectorPulse 2s ease-in-out infinite !important;
+        }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -70,26 +139,55 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="code-snippet">
-                        <div class="code-header">
-                            <span class="code-dot"></span>
-                            <span class="code-dot"></span>
-                            <span class="code-dot"></span>
+                    <div class="profile-container">
+                        <div class="profile-image-wrapper">
+                            <img src="profile_pic.png" alt="Praanav Bhowmik" class="profile-image" id="profileImage">
+                            <div class="profile-border"></div>
+                            <div class="profile-glow"></div>
                         </div>
-                        <div class="code-content">
-                            <pre><code><span class="code-keyword">class</span> <span class="code-class">Praanav</span> {
-  <span class="code-keyword">constructor</span>() {
-    <span class="code-this">this</span>.skills = [
-      <span class="code-string">'Python'</span>,
-      <span class="code-string">'AI/ML'</span>,
-      <span class="code-string">'Software Engineering'</span>
-    ];
-  }
-  
-  <span class="code-function">build</span>() {
-    <span class="code-keyword">return</span> <span class="code-string">'Innovative Solutions'</span>;
-  }
-}</code></pre>
+                        <div class="ai-animations">
+                            <div class="llm-animation">
+                                <div class="llm-title">LLM</div>
+                                <div class="neural-network">
+                                    <div class="neural-layer layer-1">
+                                        <div class="neuron" aria-label="Neuron 1"></div>
+                                        <div class="neuron" aria-label="Neuron 2"></div>
+                                        <div class="neuron" aria-label="Neuron 3"></div>
+                                    </div>
+                                    <div class="neural-layer layer-2">
+                                        <div class="neuron" aria-label="Neuron 4"></div>
+                                        <div class="neuron" aria-label="Neuron 5"></div>
+                                        <div class="neuron" aria-label="Neuron 6"></div>
+                                        <div class="neuron" aria-label="Neuron 7"></div>
+                                    </div>
+                                    <div class="neural-layer layer-3">
+                                        <div class="neuron" aria-label="Neuron 8"></div>
+                                        <div class="neuron" aria-label="Neuron 9"></div>
+                                    </div>
+                                </div>
+                                <div class="text-generation">
+                                    <span class="typing-text"></span>
+                                    <span class="cursor">|</span>
+                                </div>
+                            </div>
+                            <div class="rag-animation">
+                                <div class="rag-title">RAG</div>
+                                <div class="rag-process">
+                                    <div class="documents">
+                                        <div class="doc-chunk" aria-label="Document chunk 1"></div>
+                                        <div class="doc-chunk" aria-label="Document chunk 2"></div>
+                                        <div class="doc-chunk" aria-label="Document chunk 3"></div>
+                                    </div>
+                                    <div class="retrieval-arrow">→</div>
+                                    <div class="vector-db">
+                                        <div class="vector-node" aria-label="Vector node 1"></div>
+                                        <div class="vector-node" aria-label="Vector node 2"></div>
+                                        <div class="vector-node" aria-label="Vector node 3"></div>
+                                    </div>
+                                    <div class="generation-arrow">→</div>
+                                    <div class="generated-text">Response</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -153,6 +153,136 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+// LLM Text Generation Animation
+const typingTexts = [
+    'Generating...',
+    'Processing...',
+    'Understanding...',
+    'Creating response...',
+    'Analyzing context...'
+];
+
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+const typingElement = document.querySelector('.typing-text');
+
+function typeText() {
+    if (!typingElement) return;
+    
+    const currentText = typingTexts[currentTextIndex];
+    
+    if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        
+        if (currentCharIndex === 0) {
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
+        }
+    } else {
+        typingElement.textContent = currentText.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        
+        if (currentCharIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeText, 2000); // Wait before deleting
+            return;
+        }
+    }
+    
+    const speed = isDeleting ? 50 : 100;
+    setTimeout(typeText, speed);
+}
+
+// Start typing animation when page loads
+function startTypingAnimation() {
+    const typingEl = document.querySelector('.typing-text');
+    if (typingEl && !typingEl.dataset.started) {
+        typingEl.dataset.started = 'true';
+        // Reset animation state
+        currentTextIndex = 0;
+        currentCharIndex = 0;
+        isDeleting = false;
+        setTimeout(typeText, 500);
+    }
+}
+
+// Try multiple times to ensure it starts
+document.addEventListener('DOMContentLoaded', startTypingAnimation);
+
+// Also try if already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startTypingAnimation);
+} else {
+    startTypingAnimation();
+}
+
+// Fallback after a short delay
+setTimeout(startTypingAnimation, 2000);
+
+// Profile image loading and error handling
+const profileImage = document.getElementById('profileImage');
+if (profileImage) {
+    // Check if image loads successfully
+    profileImage.addEventListener('load', function() {
+        console.log('Profile image loaded successfully');
+        this.style.opacity = '1';
+    });
+    
+    // Handle image load errors
+    profileImage.addEventListener('error', function() {
+        console.log('Profile image failed to load, showing fallback');
+        this.style.display = 'none';
+        const wrapper = this.closest('.profile-image-wrapper');
+        if (wrapper) {
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%); border-radius: 50%; color: white; font-size: 4rem; font-weight: bold;';
+            fallback.innerHTML = '<i class="fas fa-user"></i>';
+            wrapper.appendChild(fallback);
+        }
+    });
+    
+    // Set initial opacity for fade-in effect
+    profileImage.style.opacity = '0';
+    profileImage.style.transition = 'opacity 0.5s ease';
+}
+
+// Debug: Log animation elements and force visibility
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('LLM Animation element:', document.querySelector('.llm-animation'));
+    console.log('RAG Animation element:', document.querySelector('.rag-animation'));
+    console.log('Profile image element:', document.querySelector('.profile-image'));
+    
+    // Force visibility of neurons
+    const neurons = document.querySelectorAll('.neuron');
+    console.log('Found neurons:', neurons.length);
+    neurons.forEach((neuron, index) => {
+        neuron.style.display = 'block';
+        neuron.style.visibility = 'visible';
+        neuron.style.opacity = '1';
+        console.log(`Neuron ${index} styles:`, window.getComputedStyle(neuron).display);
+    });
+    
+    // Force visibility of doc chunks
+    const docChunks = document.querySelectorAll('.doc-chunk');
+    console.log('Found doc chunks:', docChunks.length);
+    docChunks.forEach((chunk, index) => {
+        chunk.style.display = 'block';
+        chunk.style.visibility = 'visible';
+        chunk.style.opacity = '1';
+    });
+    
+    // Force visibility of vector nodes
+    const vectorNodes = document.querySelectorAll('.vector-node');
+    console.log('Found vector nodes:', vectorNodes.length);
+    vectorNodes.forEach((node, index) => {
+        node.style.display = 'block';
+        node.style.visibility = 'visible';
+        node.style.opacity = '1';
+    });
+});
+
 // Console easter egg
 console.log('%c👋 Hello! Thanks for checking out my portfolio!', 'color: #6366f1; font-size: 16px; font-weight: bold;');
 console.log('%cBuilt with ❤️ by Praanav Bhowmik', 'color: #8b5cf6; font-size: 12px;');
