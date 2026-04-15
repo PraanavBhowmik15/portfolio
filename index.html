@@ -3,371 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praanav Bhowmik | Software Engineer & AI Innovator</title>
+    <title>Praanav Bhowmik | Full Stack AI Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Background Orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo">PB</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#intro" class="nav-brand">
+                <span class="bracket">&lt;</span>PB<span class="bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about"      class="nav-link"><span class="nav-num">01.</span>About</a></li>
+                <li><a href="#experience" class="nav-link"><span class="nav-num">02.</span>Experience</a></li>
+                <li><a href="#skills"     class="nav-link"><span class="nav-num">03.</span>Skills</a></li>
+                <li><a href="#projects"   class="nav-link"><span class="nav-num">04.</span>Projects</a></li>
+                <li><a href="mailto:praanavbhowmik15@gmail.com" class="btn-hire">Hire Me</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero/Intro Section -->
-        <section id="intro" class="intro">
-            <div class="container">
-                <div class="intro-content">
-                    <p class="intro-greeting">Hello, I'm</p>
-                    <h1 class="intro-name">Praanav Bhowmik.</h1>
-                    <h2 class="intro-title">Software Engineer & AI Innovator.</h2>
-                    <p class="intro-description">
-                        I'm a software engineer specializing in building (and occasionally designing) exceptional 
-                        digital experiences. Currently, I'm focused on building accessible, AI-powered solutions 
-                        that solve real-world problems.
-                    </p>
-                    <div class="intro-social">
-                        <a href="https://github.com/PraanavBhowmik15" target="_blank" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/praanav-bhowmik" target="_blank" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:praanavbhowmik15@gmail.com" class="social-link" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+    <!-- ── HERO ── -->
+    <section id="intro" class="hero">
+        <div class="hero-inner">
+
+            <div class="hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Praanav<br>Bhowmik.</h1>
+                <h2 class="hero-role">
+                    <span class="gradient-text" id="typedText"></span><span class="typed-cursor">|</span>
+                </h2>
+                <p class="hero-desc">
+                    I build production-grade Python backends, React frontends, and
+                    LLM-powered research applications. FastAPI · RAG · Agentic AI · AWS.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="hero-socials">
+                        <a href="https://github.com/PraanavBhowmik15" target="_blank" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/praanav-bhowmik" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:praanavbhowmik15@gmail.com" class="social-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-number">01.</span>
-                    <h2 class="section-title">About Me</h2>
-                    <div class="section-line"></div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="code-card">
+                    <div class="code-card-glow"></div>
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="code-fname">praanav.py</span>
+                    </div>
+                    <pre class="code-body"><span class="ck">class</span> <span class="cc">PraanavBhowmik</span>:
+    name  <span class="co">=</span> <span class="cs">"Praanav Bhowmik"</span>
+    role  <span class="co">=</span> <span class="cs">"Full Stack AI Engineer"</span>
+    exp   <span class="co">=</span> <span class="cn">5</span><span class="co">+</span> <span class="cs">" years"</span>
+
+    stack <span class="co">=</span> [
+        <span class="cs">"FastAPI"</span>, <span class="cs">"LangChain"</span>,
+        <span class="cs">"RAG"</span>,     <span class="cs">"LangGraph"</span>,
+        <span class="cs">"PyTorch"</span>, <span class="cs">"React"</span>,
+        <span class="cs">"AWS"</span>,     <span class="cs">"Docker"</span>,
+    ]
+
+    <span class="ck">def</span> <span class="cf">say_hello</span>(self):
+        <span class="ck">return</span> <span class="cs">"Let's build something!"</span></pre>
                 </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            Hello! I'm Praanav, an AI Engineer and Computer Science graduate student with 4+ years of 
-                            experience designing, building, and deploying scalable AI/ML systems across finance and 
-                            enterprise applications.
-                        </p>
-                        <p>
-                            I have proven expertise in Generative AI, LLM-based agentic systems, and deep learning using 
-                            Python, PyTorch, Spark, TensorFlow, and cloud platforms (AWS, GCP). I enjoy building things 
-                            that live on the internet and developing exceptional applications with clean and efficient code.
-                        </p>
-                        <p>
-                            I completed my Master's Degree from University at Buffalo, I'm focused on building accessible, 
-                            AI-powered solutions that solve real-world problems while maintaining production-grade quality.
-                        </p>
-                        <p>Here are a few technologies I've been working with recently:</p>
-                        <ul class="tech-list">
-                            <li>Python</li>
-                            <li>PyTorch</li>
-                            <li>TensorFlow</li>
-                            <li>LangChain</li>
-                            <li>RAG</li>
-                            <li>AWS</li>
-                            <li>GCP</li>
-                            <li>Docker</li>
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>PostgreSQL</li>
-                            <li>MLOps</li>
+            </div>
+
+        </div>
+        <div class="scroll-hint" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span>scroll</span>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="about">
+        <div class="container">
+            <span class="section-tag">01. About Me</span>
+            <h2 class="section-heading">Who <span class="gradient-text">I Am</span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! I'm Praanav, a Full Stack AI Engineer with <strong>5+ years</strong> of experience building production Python backends, React frontends, and LLM-powered research applications. I hold an <strong>M.S. in Computer &amp; Information Science</strong> from the University at Buffalo.</p>
+                    <p>My work centers on FastAPI, async APIs, RAG, agentic LLM architectures, vector search, and embedding pipelines — turning complex domain requirements into intuitive, user-centric interfaces.</p>
+                    <p>I'm focused on accessible, production-grade AI: clean code, strong testing, and observable systems on AWS, GCP, and Azure.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-num gradient-text">5+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num gradient-text">20+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num gradient-text">3</span>
+                            <span class="stat-label">Cloud Platforms</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-pills-wrap">
+                    <p class="pills-label">Technologies I work with</p>
+                    <ul class="tech-pills">
+                        <li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li>
+                        <li>LangChain</li><li>LangGraph</li><li>RAG</li><li>pgvector</li>
+                        <li>PostgreSQL</li><li>AWS</li><li>GCP</li><li>Docker</li>
+                        <li>PyTorch</li><li>OpenAI</li><li>Claude</li><li>Gemini</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <span class="section-tag">02. Experience</span>
+            <h2 class="section-heading">Where I've <span class="gradient-text">Worked</span></h2>
+            <div class="timeline">
+
+                <div class="tl-item reveal-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-meta">
+                            <span class="tl-date">Feb 2025 — Present</span>
+                            <span class="tl-badge">Current</span>
+                        </div>
+                        <h3 class="tl-title">Research AI Engineer</h3>
+                        <span class="tl-company">@ University at Buffalo</span>
+                        <ul class="tl-points">
+                            <li>Built production full-stack ML applications on GCP with Python (FastAPI) and async pipeline architecture; scalable REST APIs serving LLM-powered outputs, improving analytical decision-making by ~15%</li>
+                            <li>Developed LLM-integrated inference pipelines with structured outputs, prompt engineering, and robust error handling using OpenAI and Hugging Face Transformers</li>
+                            <li>Implemented containerised Docker AI services with CI/CD for production-reliable applications across the ML lifecycle on AWS</li>
+                            <li>Led technical design reviews with cross-functional stakeholders — translating scientific requirements into pragmatic solutions</li>
                         </ul>
+                        <div class="tl-tags">
+                            <span>Python</span><span>FastAPI</span><span>GCP</span><span>AWS</span>
+                            <span>Docker</span><span>CI/CD</span><span>OpenAI</span><span>Hugging Face</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="experience">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-number">02.</span>
-                    <h2 class="section-title">Where I've Worked</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="experience-content">
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Generative AI Engineer</h3>
-                            <span class="experience-company">University at Buffalo</span>
+                <div class="tl-item reveal-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-meta">
+                            <span class="tl-date">Sept 2023 — May 2024</span>
                         </div>
-                        <div class="experience-date">May 2025 — Present</div>
-                        <ul class="experience-description">
-                            <li>Designed and deployed end-to-end GenAI-driven data pipelines to convert raw market data into actionable analytics and trading strategy insights for retail investors, enabling faster and more informed investment decisions</li>
-                            <li>Built and productionized LLM-powered analytics and research workflows using RAG and agentic AI to automate market analysis, resulting in a 15% improvement in efficiency across trading and research use cases</li>
-                            <li>Implemented LLM-based agents with LangChain in Python to analyze financial data, surface market trends, and support data-driven strategy formulation, reducing manual analysis time</li>
-                            <li>Built and deployed production-grade systems with Docker, CI/CD pipelines, and AWS/GCP, achieving scalable and reliable AI analytics solutions that cut deployment time</li>
-                            <li>Developed scalable data pipelines and analytics services in Python using TensorFlow and REST APIs to power AI-driven trading tools, increasing data processing throughput</li>
-                            <li>Conducted system testing, experimentation, data manipulation, and debugging with Python scripts and GCP CI/CD pipelines, which improved the robustness of AI-powered analytics in production and reduced the frequency of runtime errors</li>
+                        <h3 class="tl-title">AI Engineer</h3>
+                        <span class="tl-company">@ Futuristic Bots</span>
+                        <ul class="tl-points">
+                            <li>Engineered production ML inference services on AWS with containerised microservices — graph-level model evaluation, op validation, and async-optimised pipelines achieving 98% operational accuracy</li>
+                            <li>Built agentic LLM workflows and event-driven data enrichment with modular, dependency-injected Python components</li>
+                            <li>Owned end-to-end CI/CD: build, scan, test, Docker packaging, and deployment via GitHub Actions</li>
+                            <li>Partnered with engineering and domain teams to integrate AI outputs into enterprise systems</li>
                         </ul>
-                        <div class="experience-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LLMs</span>
-                            <span class="tech-tag">GPT-4</span>
-                            <span class="tech-tag">LLaMA-2</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Vector Database</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">Prompt Engineering</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">GCP</span>
+                        <div class="tl-tags">
+                            <span>Python</span><span>AWS</span><span>Docker</span><span>GitHub Actions</span>
+                            <span>Microservices</span><span>Agentic LLM</span><span>ML Inference</span>
                         </div>
                     </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">AI Engineer</h3>
-                            <span class="experience-company">Futuristic Bots</span>
+                </div>
+
+                <div class="tl-item reveal-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-meta">
+                            <span class="tl-date">Jan 2020 — Aug 2023</span>
                         </div>
-                        <div class="experience-date">Sept 2023 — May 2024</div>
-                        <ul class="experience-description">
-                            <li>Designed and deployed a real-time autonomous navigation system that allowed warehouse robots to safely and accurately move through complex environments, achieving 98% operational accuracy across multiple facilities</li>
-                            <li>Built real-time perception and obstacle detection systems using camera and depth sensor data, enabling reliable navigation and scalable deployment across 100+ robots in production</li>
+                        <h3 class="tl-title">Junior Backend Engineer</h3>
+                        <span class="tl-company">@ Nashtech</span>
+                        <ul class="tl-points">
+                            <li>Developed NLP and transformer-based inference pipelines with Python, PyTorch, and Hugging Face — 90%+ accuracy, ~15% fewer false positives</li>
+                            <li>Built RAG systems and retrieval pipelines with vector databases, embeddings, and semantic search; shipped FastAPI services for research workflows</li>
+                            <li>Designed automated ETL with Python and SQL, containerised services, and CI/CD — cutting manual processing by ~40%</li>
+                            <li>Integrated OpenAI and Anthropic Claude into production with provider-agnostic routing and structured-output validation</li>
                         </ul>
-                        <div class="experience-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">ROS</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">SLAM</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Microservices</span>
-                            <span class="tech-tag">Depth Sensors</span>
-                            <span class="tech-tag">Lidar</span>
-                            <span class="tech-tag">EC2</span>
-                            <span class="tech-tag">Lambda</span>
+                        <div class="tl-tags">
+                            <span>Python</span><span>FastAPI</span><span>PyTorch</span><span>RAG</span>
+                            <span>PostgreSQL</span><span>OpenAI</span><span>Anthropic</span><span>NLP</span>
                         </div>
                     </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Junior AI Engineer</h3>
-                            <span class="experience-company">Nashtech</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <span class="section-tag">03. Skills</span>
+            <h2 class="section-heading">My <span class="gradient-text">Toolkit</span></h2>
+            <div class="skills-grid">
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Back-End &amp; APIs</h3>
+                    <div class="skill-tags">
+                        <span>Python 3.11+</span><span>FastAPI</span><span>Async I/O</span>
+                        <span>REST APIs</span><span>Pydantic</span><span>SQLAlchemy</span>
+                        <span>PostgreSQL</span><span>MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span>React.js</span><span>TypeScript</span>
+                        <span>JavaScript</span><span>GraphQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3>LLM &amp; Agentic AI</h3>
+                    <div class="skill-tags">
+                        <span>OpenAI GPT-4</span><span>Anthropic Claude</span><span>Google Gemini</span>
+                        <span>Hugging Face</span><span>LangChain</span><span>LangGraph</span>
+                        <span>Semantic Kernel</span><span>RAG</span><span>Prompt Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+                    <h3>Vector &amp; Retrieval</h3>
+                    <div class="skill-tags">
+                        <span>Azure AI Search</span><span>pgvector</span><span>Chroma</span>
+                        <span>Semantic Search</span><span>Embeddings</span>
+                    </div>
+                </div>
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud &amp; DevOps</h3>
+                    <div class="skill-tags">
+                        <span>AWS (EC2, S3, RDS)</span><span>GCP</span><span>Azure</span>
+                        <span>Docker</span><span>CI/CD</span><span>GitHub Actions</span>
+                        <span>Jenkins</span><span>OpenTelemetry</span>
+                    </div>
+                </div>
+
+                <div class="skill-card reveal-item">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>ML &amp; Data</h3>
+                    <div class="skill-tags">
+                        <span>PyTorch</span><span>scikit-learn</span><span>Deep Learning</span>
+                        <span>NLP</span><span>Computer Vision</span><span>PySpark</span><span>Pandas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <span class="section-tag">04. Projects</span>
+            <h2 class="section-heading">Things I've <span class="gradient-text">Built</span></h2>
+            <div class="projects-grid">
+
+                <div class="proj-card reveal-item">
+                    <div class="proj-glow"></div>
+                    <div class="proj-inner">
+                        <div class="proj-top">
+                            <div class="proj-icon"><i class="fas fa-palette"></i></div>
+                            <div class="proj-links">
+                                <a href="https://github.com/PraanavBhowmik15/VisualVerse" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
-                        <div class="experience-date">Jan 2021 — Aug 2023</div>
-                        <ul class="experience-description">
-                            <li>Enhanced a real-time email text OCR extraction system using Generative AI, NLP techniques, transformer-based models, and Python, achieving more than 90% accuracy and reducing false positives by 15%</li>
-                            <li>Improved ML model performance through rigorous data collection, EDA, feature engineering, and statistical analysis using Pandas, NumPy, and scikit-learn</li>
-                            <li>Set up automated data ingestion and ETL pipelines with backend scripting, SQL and database systems (MySQL/PostgreSQL), reducing manual data entry by 40%</li>
-                        </ul>
-                        <div class="experience-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">Microservices</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                        <h3>VisualVerse</h3>
+                        <p>Multimodal AI platform using Python, deep learning, computer vision, NLP, and LLMs to generate contextual artwork captions — enhancing art interpretation and accessibility for ed-tech and museums.</p>
+                        <div class="proj-tags">
+                            <span>Python</span><span>Deep Learning</span><span>CV</span><span>NLP</span><span>LLMs</span>
                         </div>
                     </div>
+                </div>
+
+                <div class="proj-card reveal-item">
+                    <div class="proj-glow"></div>
+                    <div class="proj-inner">
+                        <div class="proj-top">
+                            <div class="proj-icon"><i class="fas fa-chart-bar"></i></div>
+                            <div class="proj-links">
+                                <a href="https://github.com/PraanavBhowmik15/Stock_research_agentic_system" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>Stock Research Agentic System</h3>
+                        <p>Multi-agent, LLM-powered stock analysis using LangChain and RAG. Real-time pipelines integrating financial news and market data — automated investment reports improving decision-making by 20%.</p>
+                        <div class="proj-tags">
+                            <span>Python</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proj-card reveal-item">
+                    <div class="proj-glow"></div>
+                    <div class="proj-inner">
+                        <div class="proj-top">
+                            <div class="proj-icon"><i class="fab fa-github"></i></div>
+                            <div class="proj-links">
+                                <a href="https://github.com/PraanavBhowmik15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3>More on GitHub</h3>
+                        <p>Explore more projects on GitHub — constantly building new tools and contributing to open-source initiatives that push the boundaries of AI and software engineering.</p>
+                        <div class="proj-tags">
+                            <span>Open Source</span><span>Python</span><span>AI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-inner reveal-item">
+                <p class="contact-overline">05. What's Next?</p>
+                <h2 class="contact-title">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="contact-desc">
+                    Although I'm not currently looking for new opportunities, my inbox is always open.
+                    Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                </p>
+                <a href="mailto:praanavbhowmik15@gmail.com" class="btn-contact">
+                    <span>Say Hello</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+                <div class="contact-socials">
+                    <a href="https://github.com/PraanavBhowmik15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/praanav-bhowmik" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:praanavbhowmik15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-number">03.</span>
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="skills-content">
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">Programming Languages</h3>
-                        <div class="skills-grid">
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">SQL</span>
-                            <span class="skill-item">C++</span>
-                        </div>
-                    </div>
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">AI/ML Technologies</h3>
-                        <div class="skills-grid">
-                            <span class="skill-item">Machine Learning</span>
-                            <span class="skill-item">Deep Learning</span>
-                            <span class="skill-item">Generative AI</span>
-                            <span class="skill-item">LLMs</span>
-                            <span class="skill-item">NLP</span>
-                            <span class="skill-item">LangChain</span>
-                            <span class="skill-item">RAG</span>
-                            <span class="skill-item">PyTorch</span>
-                            <span class="skill-item">TensorFlow</span>
-                            <span class="skill-item">Spark</span>
-                        </div>
-                    </div>
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">Infrastructure & DevOps</h3>
-                        <div class="skills-grid">
-                            <span class="skill-item">Data Pipelines</span>
-                            <span class="skill-item">MLOps</span>
-                            <span class="skill-item">AWS</span>
-                            <span class="skill-item">GCP</span>
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">Web Technologies</h3>
-                        <div class="skills-grid">
-                            <span class="skill-item">REST APIs</span>
-                            <span class="skill-item">React</span>
-                            <span class="skill-item">Node.js</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-number">04.</span>
-                    <h2 class="section-title">Some Things I've Built</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-folder">
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/PraanavBhowmik15/VisualVerse" target="_blank" class="project-link" aria-label="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="External Link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">VisualVerse</h3>
-                        <p class="project-description">
-                            Developed a multimodal AI platform using Python, deep learning, computer vision, NLP, and LLMs 
-                            to generate contextual artwork captions, enhancing art interpretation and accessibility for 
-                            applications in ed-tech and museums.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">LLMs</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-folder">
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/PraanavBhowmik15/Stock_research_agentic_system" target="_blank" class="project-link" aria-label="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="External Link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Stock Research Agentic System</h3>
-                        <p class="project-description">
-                            Created a multi-agent, LLM-powered stock analysis system using LLM orchestration frameworks such 
-                            as LangChain and RAG. Built real-time data pipelines to integrate real-time financial news and 
-                            market data, delivering automated investment reports that improved decision-making efficiency by 20%.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">LLMs</span>
-                            <span class="tech-tag">Agentic Systems</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-folder">
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/PraanavBhowmik15" target="_blank" class="project-link" aria-label="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">More Projects</h3>
-                        <p class="project-description">
-                            Explore more of my work on GitHub. I'm constantly working on new projects and contributing to 
-                            open-source initiatives that push the boundaries of software engineering and AI.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Open Source</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Innovation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <span class="contact-number">05. What's Next?</span>
-                    <h2 class="contact-title">Get In Touch</h2>
-                    <p class="contact-description">
-                        Although I'm not currently looking for new opportunities, my inbox is always open. 
-                        Whether you have a question or just want to say hi, I'll try my best to get back to you!
-                    </p>
-                    <a href="mailto:praanavbhowmik15@gmail.com" class="btn btn-primary">Say Hello</a>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p class="footer-text">
-                Design inspired by <a href="https://brittanychiang.com" target="_blank" class="footer-link">Brittany Chiang</a>. Built with semantic HTML & CSS.
-            </p>
-            <p class="footer-copyright">© 2025 Praanav Bhowmik</p>
-        </div>
+        <p>Designed &amp; Built by <span class="gradient-text">Praanav Bhowmik</span></p>
+        <p class="footer-copy">© 2026</p>
     </footer>
 
     <script src="script.js"></script>

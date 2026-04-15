@@ -1,121 +1,153 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
+let mx = 0, my = 0;   // mouse position (dot follows instantly)
+let rx = 0, ry = 0;   // ring position  (ring lags)
+
+if (dot && ring) {
+    document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
     });
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
+    (function animateRing() {
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(animateRing);
+    })();
+
+    // enlarge ring over interactive elements
+    const hoverEls = document.querySelectorAll(
+        'a, button, .skill-card, .proj-card, .tl-card, .tech-pills li, .btn-primary, .btn-contact'
+    );
+    hoverEls.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
     });
 }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+/* ============================================================
+   TYPEWRITER
+   ============================================================ */
+const titles = [
+    'Full Stack AI Engineer.',
+    'LLM Systems Builder.',
+    'RAG & Agentic AI Dev.',
+    'Python Backend Expert.',
+];
+let tIdx = 0, cIdx = 0, deleting = false;
+const typedEl = document.getElementById('typedText');
+
+function typeStep() {
+    if (!typedEl) return;
+    const cur = titles[tIdx];
+    typedEl.textContent = deleting
+        ? cur.slice(0, --cIdx)
+        : cur.slice(0, ++cIdx);
+
+    let delay = deleting ? 48 : 80;
+    if (!deleting && cIdx === cur.length)  { delay = 2000; deleting = true; }
+    else if (deleting && cIdx === 0)        { deleting = false; tIdx = (tIdx + 1) % titles.length; delay = 350; }
+    setTimeout(typeStep, delay);
+}
+setTimeout(typeStep, 1600);
+
+/* ============================================================
+   NAVBAR SCROLL STATE
+   ============================================================ */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
+    highlightNav();
+}, { passive: true });
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('navMenu');
+
+hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-link, .btn-hire').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger?.classList.remove('open');
+        navMenu?.classList.remove('open');
+    });
+});
+
+/* ============================================================
+   SMOOTH SCROLL
+   ============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href === '#' || href === '#!') {
-            e.preventDefault();
-            return;
-        }
-        
+        if (!href || href === '#') return;
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-            const navHeight = window.innerWidth <= 768 ? 70 : 100;
-            const offsetTop = target.offsetTop - navHeight;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 80;
+            window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
         }
     });
 });
 
-// Navbar background on scroll
-const navbar = document.querySelector('.navbar');
-if (navbar) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.height = 'var(--nav-scroll-height)';
-            navbar.style.boxShadow = '0 10px 30px -10px rgba(2, 12, 27, 0.7)';
-        } else {
-            navbar.style.height = 'var(--nav-height)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
-}
+/* ============================================================
+   ACTIVE NAV LINK
+   ============================================================ */
+const sections  = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-link');
 
-// Active navigation link highlighting
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-function highlightActiveSection() {
-    const scrollY = window.pageYOffset;
-    const navHeight = window.innerWidth <= 768 ? 70 : 100;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - navHeight - 100;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const href = link.getAttribute('href');
-                if (href === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
+function highlightNav() {
+    const y = window.pageYOffset;
+    sections.forEach(sec => {
+        const top = sec.offsetTop - 140;
+        if (y >= top && y < top + sec.offsetHeight) {
+            navLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href') === `#${sec.id}`) l.classList.add('active');
             });
         }
     });
 }
 
-window.addEventListener('scroll', highlightActiveSection);
-
-// Add active class styles
-const style = document.createElement('style');
-style.textContent = `
-    .nav-link.active {
-        color: var(--green);
-    }
-`;
-document.head.appendChild(style);
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+        if (!entry.isIntersecting) return;
+        const el    = entry.target;
+        const delay = parseInt(el.dataset.delay || 0);
+        setTimeout(() => el.classList.add('visible'), delay);
+        revealObs.unobserve(el);
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.project-card, .experience-item');
-    
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
-    });
+// stagger delays for grid children
+document.querySelectorAll('.skills-grid .reveal-item').forEach((el, i) => {
+    el.dataset.delay = i * 90;
+});
+document.querySelectorAll('.projects-grid .reveal-item').forEach((el, i) => {
+    el.dataset.delay = i * 100;
+});
+document.querySelectorAll('.tl-item').forEach((el, i) => {
+    el.dataset.delay = i * 130;
 });
 
-// Console easter egg
-console.log('%c👋 Hello! Thanks for checking out my portfolio!', 'color: #64ffda; font-size: 16px; font-weight: bold;');
-console.log('%cBuilt with semantic HTML & CSS', 'color: #8892b0; font-size: 12px;');
+document.querySelectorAll('.reveal-item').forEach(el => revealObs.observe(el));
+
+/* ============================================================
+   CONSOLE EASTER EGG
+   ============================================================ */
+console.log('%c👋 Hey fellow dev!', 'color:#a855f7;font-size:17px;font-weight:bold;');
+console.log('%cLike what you see? → praanavbhowmik15@gmail.com', 'color:#06b6d4;font-size:13px;');
